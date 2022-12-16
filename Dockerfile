@@ -23,3 +23,5 @@ RUN addgroup -g "$GID" "$USERNAME" \
     && adduser -S -u "$UID" -G "$USERNAME" "$USERNAME"
 
 COPY --from=go-builder /go/bin/pixlet /usr/bin
+
+USER pixlet

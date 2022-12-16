@@ -5,5 +5,5 @@ services:
     image: "ghcr.io/gabe565/pixlet"
     build: "."
     volumes:
-      - "./data/config:/root/.config/tidbyt"
+      - "./data/config:/home/pixlet/.config/tidbyt"
       - "./data/data:/data"
