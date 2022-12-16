@@ -12,7 +12,7 @@ RUN --mount=type=cache,target=/root/.cache \
 
 FROM alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-pixlet"
-WORKDIR /app
+WORKDIR /data
 
 RUN apk add --no-cache tzdata libwebp
 
