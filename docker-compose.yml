@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  pixlet:
+    image: "ghcr.io/gabe565/pixlet"
+    build: "."
+    volumes:
+      - "./data/config:/root/.config/tidbyt"
+      - "./data/data:/data"
