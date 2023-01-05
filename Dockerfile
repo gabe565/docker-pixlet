@@ -1,8 +1,7 @@
-ARG GO_VERSION=1.19
 ARG PIXLET_PACKAGE=tidbyt.dev/pixlet
 ARG PIXLET_VERSION=v0.22.8
 
-FROM golang:$GO_VERSION-alpine as go-builder
+FROM golang:1.19-alpine as go-builder
 
 RUN apk add --no-cache gcc g++ libwebp-dev
 
