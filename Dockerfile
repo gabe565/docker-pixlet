@@ -12,7 +12,7 @@ RUN --mount=type=cache,target=/root/.cache \
     go install "$PIXLET_PACKAGE@$PIXLET_VERSION"
 
 
-FROM alpine
+FROM alpine:3.17
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-pixlet"
 WORKDIR /data
 
