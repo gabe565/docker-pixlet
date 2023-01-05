@@ -9,9 +9,6 @@
     "{{datasource}}",
     "{{updateType}}"
   ],
-  "github-actions": {
-    "enabled": false
-  },
   "regexManagers": [
     {
       "fileMatch": ["Dockerfile"],
