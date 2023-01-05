@@ -15,15 +15,19 @@
   "regexManagers": [
     {
       "fileMatch": ["Dockerfile"],
+      "matchStringsStrategy": "combination",
       "matchStrings": [
-        "ARG PIXLET_PACKAGE=(?<depName>.+)\\nARG PIXLET_VERSION=(?<currentValue>.+)"
+        "ARG PIXLET_PACKAGE=(?<depName>.+)",
+        "ARG PIXLET_VERSION=(?<currentValue>.+)"
       ],
       "datasourceTemplate": "go"
     },
     {
       "fileMatch": ["^\\.github/workflows/"],
+      "matchStringsStrategy": "combination",
       "matchStrings": [
-        " *PIXLET_PACKAGE: (?<depName>.+)\\n *PIXLET_VERSION: (?<currentValue>.+)"
+        "\\s+PIXLET_PACKAGE: (?<depName>.+)",
+        "\\s+PIXLET_VERSION: (?<currentValue>.+)"
       ],
       "datasourceTemplate": "go"
     }
