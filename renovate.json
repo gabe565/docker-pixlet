@@ -12,6 +12,22 @@
   "github-actions": {
     "enabled": false
   },
+  "regexManagers": [
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": [
+        "ARG PIXLET_PACKAGE=(?<depName>.+)\\nARG PIXLET_VERSION=(?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "go"
+    },
+    {
+      "fileMatch": ["^\\.github/workflows/"],
+      "matchStrings": [
+        " *PIXLET_PACKAGE: (?<depName>.+)\\n *PIXLET_VERSION: (?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "go"
+    }
+  ],
   "commitMessagePrefix": ":arrow_up:",
   "packageRules": [
     {
