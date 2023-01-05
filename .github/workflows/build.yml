@@ -3,6 +3,7 @@ name: Build
 on: push
 
 env:
+  PIXLET_PACKAGE: tidbyt.dev/pixlet
   PIXLET_VERSION: v0.22.8
 
 jobs:
@@ -46,6 +47,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
+            PIXLET_PACKAGE=${{ env.PIXLET_PACKAGE }}
             PIXLET_VERSION=${{ env.PIXLET_VERSION }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
