@@ -1,0 +1,46 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "ignorePresets": [":prHourlyLimit2"],
+  "labels": [
+    "dependencies",
+    "{{datasource}}",
+    "{{updateType}}"
+  ],
+  "github-actions": {
+    "enabled": false
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": [
+        "ARG PIXLET_PACKAGE=(?<depName>.+)\\nARG PIXLET_VERSION=(?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "go"
+    },
+    {
+      "fileMatch": ["^\\.github/workflows/"],
+      "matchStrings": [
+        " *PIXLET_PACKAGE: (?<depName>.+)\\n *PIXLET_VERSION: (?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "go"
+    }
+  ],
+  "commitMessagePrefix": ":arrow_up:",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["lockFileMaintenance", "pin"],
+      "commitMessagePrefix": ":pushpin:"
+    },
+    {
+      "matchUpdateTypes": ["rollback"],
+      "commitMessagePrefix": ":arrow_down:"
+    },
+    {
+      "matchPackageNames": ["tidbyt.dev/pixlet", "alpine"],
+      "automerge": true
+    }
+  ]
+}
