@@ -9,6 +9,7 @@
     "{{datasource}}",
     "{{updateType}}"
   ],
+  "automerge": true,
   "regexManagers": [
     {
       "fileMatch": ["Dockerfile"],
@@ -38,10 +39,6 @@
     {
       "matchUpdateTypes": ["rollback"],
       "commitMessagePrefix": ":arrow_down:"
-    },
-    {
-      "matchPackageNames": ["tidbyt.dev/pixlet", "alpine"],
-      "automerge": true
     }
   ]
 }
