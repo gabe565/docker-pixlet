@@ -8,7 +8,7 @@ RUN apk add --no-cache gcc g++ libwebp-dev
 ARG PIXLET_PACKAGE
 ARG PIXLET_VERSION
 RUN --mount=type=cache,target=/root/.cache \
-    go install "$PIXLET_PACKAGE@$PIXLET_VERSION"
+    go install -ldflags='-s -w' "$PIXLET_PACKAGE@$PIXLET_VERSION"
 
 
 FROM alpine:3.17
