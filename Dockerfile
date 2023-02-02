@@ -1,5 +1,5 @@
 ARG PIXLET_PACKAGE=tidbyt.dev/pixlet
-ARG PIXLET_VERSION=v0.24.3
+ARG PIXLET_VERSION=v0.24.4
 
 FROM golang:1.19-alpine as go-builder
 
