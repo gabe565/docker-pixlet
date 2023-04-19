@@ -6,26 +6,10 @@
   "automerge": true,
   "regexManagers": [
     {
-      "fileMatch": ["Dockerfile"],
-      "matchStringsStrategy": "combination",
+      "fileMatch": ["Dockerfile", "^\\.github/workflows/", "README.md"],
       "matchStrings": [
-        "ARG PIXLET_PACKAGE=(?<depName>.+)",
-        "ARG PIXLET_VERSION=(?<currentValue>.+)"
-      ],
-      "datasourceTemplate": "go"
-    },
-    {
-      "fileMatch": ["^\\.github/workflows/"],
-      "matchStringsStrategy": "combination",
-      "matchStrings": [
-        "\\s+PIXLET_PACKAGE: (?<depName>.+)",
-        "\\s+PIXLET_VERSION: (?<currentValue>.+)"
-      ],
-      "datasourceTemplate": "go"
-    },
-    {
-      "fileMatch": ["README.md"],
-      "matchStrings": [
+        "\\s*PIXLET_PACKAGE: +(?<depName>.+)\\n\\s*PIXLET_VERSION: +(?<currentValue>.+)",
+        "ARG +PIXLET_PACKAGE=(?<depName>.+)\\nARG +PIXLET_VERSION=(?<currentValue>.+)",
         "<!--renovate repo=(?<depName>.+) -->\\n.*\\/Version-(?<currentValue>.+?)-"
       ],
       "datasourceTemplate": "go"
