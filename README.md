@@ -1,7 +1,7 @@
 # Pixlet Docker Images
 
 <!--renovate repo=tidbyt.dev/pixlet -->
-[![Version](https://img.shields.io/badge/Version-v0.28.4-informational?style=flat)](https://github.com/gabe565/docker-pixlet/pkgs/container/pixlet)
+[![Version](https://img.shields.io/badge/Version-v0.28.5-informational?style=flat)](https://github.com/gabe565/docker-pixlet/pkgs/container/pixlet)
 [![Build](https://github.com/gabe565/docker-pixlet/actions/workflows/build.yml/badge.svg)](https://github.com/gabe565/docker-pixlet/actions/workflows/build.yml)
 
 This repo builds Docker images for [tidbyt/pixlet](https://github.com/tidbyt/pixlet) to be used in containerized Pixlet runs.
