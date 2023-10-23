@@ -4,7 +4,7 @@ on: push
 
 env:
   PIXLET_PACKAGE: tidbyt.dev/pixlet
-  PIXLET_VERSION: v0.28.4
+  PIXLET_VERSION: v0.28.5
 
 jobs:
   build:
