@@ -11,7 +11,7 @@ RUN --mount=type=cache,target=/root/.cache \
     go install -ldflags='-s -w' "$PIXLET_PACKAGE@$PIXLET_VERSION"
 
 
-FROM alpine:3.18
+FROM alpine:3.19
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-pixlet"
 WORKDIR /data
 
