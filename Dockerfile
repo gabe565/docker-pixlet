@@ -29,7 +29,7 @@ FROM alpine:3.20
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-pixlet"
 WORKDIR /data
 
-RUN apk add --no-cache tzdata libwebp
+RUN apk add --no-cache tzdata libwebp-dev
 
 ARG USERNAME=pixlet
 ARG UID=1000
