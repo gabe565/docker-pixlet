@@ -1,14 +1,28 @@
-ARG PIXLET_PACKAGE=tidbyt.dev/pixlet
+FROM --platform=$BUILDPLATFORM golang:1.22.5-alpine AS go-dependencies
+WORKDIR /app
+
+ARG PIXLET_REPO=tidbyt/pixlet
 ARG PIXLET_VERSION=v0.33.3
+RUN apk add --no-cache git
+RUN set -x \
+    && git clone -q \
+    --config advice.detachedHead=false \
+    --branch "$PIXLET_VERSION" \
+    --depth 1 \
+     "https://github.com/$PIXLET_REPO.git" . \
+    && go mod download
+
 
 FROM golang:1.22.5-alpine as go-builder
+WORKDIR /app
 
 RUN apk add --no-cache gcc g++ libwebp-dev
 
-ARG PIXLET_PACKAGE
-ARG PIXLET_VERSION
+COPY --from=go-dependencies /app .
+COPY --from=go-dependencies /go /go
+
 RUN --mount=type=cache,target=/root/.cache \
-    go install -ldflags='-s -w' "$PIXLET_PACKAGE@$PIXLET_VERSION"
+    go build -ldflags='-s -w' -o pixlet
 
 
 FROM alpine:3.20
@@ -23,6 +37,6 @@ ARG GID=$UID
 RUN addgroup -g "$GID" "$USERNAME" \
     && adduser -S -u "$UID" -G "$USERNAME" "$USERNAME"
 
-COPY --from=go-builder /go/bin/pixlet /usr/bin
+COPY --from=go-builder /app/pixlet /usr/bin
 
 USER pixlet

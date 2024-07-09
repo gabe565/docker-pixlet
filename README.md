@@ -1,6 +1,6 @@
 # Pixlet Docker Images
 
-<!--renovate repo=tidbyt.dev/pixlet -->
+<!--renovate repo=tidbyt/pixlet -->
 [![Version](https://img.shields.io/badge/Version-v0.33.3-informational?style=flat)](https://github.com/gabe565/docker-pixlet/pkgs/container/pixlet)
 [![Build](https://github.com/gabe565/docker-pixlet/actions/workflows/build.yml/badge.svg)](https://github.com/gabe565/docker-pixlet/actions/workflows/build.yml)
 

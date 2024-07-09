@@ -8,11 +8,11 @@
     {
       "fileMatch": ["Dockerfile", "^\\.github/workflows/", "README.md"],
       "matchStrings": [
-        "\\s*PIXLET_PACKAGE: +(?<depName>.+)\\n\\s*PIXLET_VERSION: +(?<currentValue>.+)",
-        "ARG +PIXLET_PACKAGE=(?<depName>.+)\\nARG +PIXLET_VERSION=(?<currentValue>.+)",
+        "\\s*PIXLET_REPO: +(?<depName>.+)\\n\\s*PIXLET_VERSION: +(?<currentValue>.+)",
+        "ARG +PIXLET_REPO=(?<depName>.+)\\nARG +PIXLET_VERSION=(?<currentValue>.+)",
         "<!--renovate repo=(?<depName>.+) -->\\n.*\\/Version-(?<currentValue>.+?)-"
       ],
-      "datasourceTemplate": "go"
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
