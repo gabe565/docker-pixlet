@@ -23,10 +23,10 @@ jobs:
           images: |
             ghcr.io/gabe565/pixlet
           tags: |
-            type=raw,priority=1000,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
-            type=semver,pattern={{version}},value=${{ env.PIXLET_VERSION }},enable=${{ github.ref == 'refs/heads/main' }}
-            type=semver,pattern={{major}}.{{minor}},value=${{ env.PIXLET_VERSION }},enable=${{ github.ref == 'refs/heads/main' }}
-            type=semver,pattern={{major}},value=${{ env.PIXLET_VERSION }},enable=${{ github.ref == 'refs/heads/main' }}
+            type=raw,priority=1000,value=latest,enable=${{ github.ref_name == 'main' }}
+            type=semver,pattern={{version}},value=${{ env.PIXLET_VERSION }},enable=${{ github.ref_name == 'main' }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ env.PIXLET_VERSION }},enable=${{ github.ref_name == 'main' }}
+            type=semver,pattern={{major}},value=${{ env.PIXLET_VERSION }},enable=${{ github.ref_name == 'main' }}
             type=ref,event=branch
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
