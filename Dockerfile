@@ -1,8 +1,11 @@
+ARG PIXLET_REPO=tidbyt/pixlet
+ARG PIXLET_VERSION=v0.33.3
+
 FROM --platform=$BUILDPLATFORM golang:1.23.1-alpine AS go-dependencies
 WORKDIR /app
 
-ARG PIXLET_REPO=tidbyt/pixlet
-ARG PIXLET_VERSION=v0.33.3
+ARG PIXLET_REPO
+ARG PIXLET_VERSION
 RUN apk add --no-cache git
 RUN set -x \
     && git clone -q \
@@ -21,8 +24,9 @@ RUN apk add --no-cache gcc g++ libwebp-dev
 COPY --from=go-dependencies /app .
 COPY --from=go-dependencies /go /go
 
+ARG PIXLET_VERSION
 RUN --mount=type=cache,target=/root/.cache \
-    go build -ldflags='-s -w' -o pixlet
+    go build -ldflags="-s -w -X tidbyt.dev/pixlet/cmd.Version=$PIXLET_VERSION" -o pixlet
 
 
 FROM alpine:3.20
