@@ -26,7 +26,7 @@ COPY --from=go-dependencies /go /go
 
 ARG PIXLET_VERSION
 RUN --mount=type=cache,target=/root/.cache \
-    go build -ldflags="-s -w -X tidbyt.dev/pixlet/cmd.Version=$PIXLET_VERSION" -o pixlet
+    go build -ldflags="-s -w -X tidbyt.dev/pixlet/cmd.Version=$PIXLET_VERSION" -trimpath -o pixlet
 
 
 FROM alpine:3.20
