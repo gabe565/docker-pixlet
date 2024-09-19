@@ -1,5 +1,5 @@
 ARG PIXLET_REPO=tidbyt/pixlet
-ARG PIXLET_VERSION=v0.33.4
+ARG PIXLET_VERSION=v0.33.5
 
 FROM --platform=$BUILDPLATFORM golang:1.23.1-alpine AS go-dependencies
 WORKDIR /go/src/github.com/tidbyt/pixlet
