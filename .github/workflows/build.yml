@@ -4,7 +4,7 @@ on: push
 
 env:
   PIXLET_REPO: tidbyt/pixlet
-  PIXLET_VERSION: v0.33.4
+  PIXLET_VERSION: v0.33.5
 
 jobs:
   build:
