@@ -1,7 +1,7 @@
 ARG PIXLET_REPO=tidbyt/pixlet
 ARG PIXLET_VERSION=v0.34.0
 
-FROM --platform=$BUILDPLATFORM golang:1.23.4-alpine AS go-dependencies
+FROM --platform=$BUILDPLATFORM golang:1.23.5-alpine AS go-dependencies
 WORKDIR /go/src/github.com/tidbyt/pixlet
 
 ARG PIXLET_REPO
@@ -16,7 +16,7 @@ RUN set -x \
     && go mod download
 
 
-FROM golang:1.23.4-alpine AS go-builder
+FROM golang:1.23.5-alpine AS go-builder
 WORKDIR /go/src/github.com/tidbyt/pixlet
 
 RUN apk add --no-cache gcc g++ libwebp-dev
