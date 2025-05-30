@@ -28,7 +28,7 @@ RUN --mount=type=cache,target=/root/.cache \
     go install -ldflags="-s -w -X tidbyt.dev/pixlet/cmd.Version=$PIXLET_VERSION" -trimpath .
 
 
-FROM alpine:3.21
+FROM alpine:3.22
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-pixlet"
 WORKDIR /data
 
